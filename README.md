@@ -1,4 +1,4 @@
-![](itt.jpg) ![](syc.png) ![](tecnm.png)
+![](itt.jpg) ![](sys.png) ![](tecnm.png)
 
 ## Tecnológico Nacional de México
 ## Instituto Tecnológico de Tijuana
