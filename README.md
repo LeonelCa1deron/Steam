@@ -432,5 +432,7 @@ var firebaseConfig = {
 </html>
 
 ## Enlace del repositorio
+https://github.com/LeonelCa1deron/Steam.git
 
 # Conclusión
+En conclusión respecto a la práctica, hacer uso de la plataforma de firebase nos abre muchas puertas de modo que podamos ingresar registros de datos referente a una organización de automáticamente en dado caso de que la plataforma de la nube pueda ser visualizados por superiores, es decir, en una empresa se puede tener una base de datos en la nube, y gracias a los api keys, ids, y entre otras llaves requeribles para conectar las bases a sus empleados estos pueden llevar a cabo los almacenamiento de datos desde cualquier dispositivo que tenga un proyecto conectado al proyecto de la nube. En este caso usamos las api del proyecto de steam para conectar al js de VS code y mediante ello podemos registrar los datos de los usuarios desde el software.
