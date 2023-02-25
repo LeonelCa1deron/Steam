@@ -8,7 +8,6 @@ var firebaseConfig = {
     appId: "1:815593724683:web:bfa04d2065b5d5de6fe00e",
     measurementId: "G-PHNQGT8ED0"
   };
-  // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   
   
@@ -23,7 +22,7 @@ var firebaseConfig = {
   }
   function createR() {
       document.getElementById("Input1").disabled = false;
-      //Guardo los datos capturados usando el id de cada control
+
       var usuarioid = document.getElementById("Input1").value;
       var nickname = document.getElementById("Input2").value;
       var password = document.getElementById("Input3").value;
@@ -32,11 +31,9 @@ var firebaseConfig = {
       var correo = document.getElementById("Input6").value;
       var localidad = document.getElementById("Input7").value;
   
-      //validaciones
       if (usuarioid.length > 0) {
-          //creo un objeto que guarda los datos
           var usuario = {
-              usuarioid, //matricula:usuarioid
+              usuarioid,
               nickname,
               password,
               name,
@@ -44,8 +41,6 @@ var firebaseConfig = {
               correo,
               localidad,
           }
-  
-          //console.log(alumno);
   
           firebase.database().ref('Usuarios/' + usuarioid).update(usuario).then(() => {
              resetFields();
@@ -62,34 +57,12 @@ var firebaseConfig = {
       }
   
       document.getElementById("Input1").disabled = false;
-          //firebase.database().ref('users/' + userId).set({
-      //    username: name,
-      //    email: email,
-      //    profile_picture : imageUrl
-      //  });
-      //https://firebase.google.com/docs/database/web/read-and-write?hl=es
-  
-    
-      //Esto se usa cuando no tienen un id/matricula y Firebase les genera una
-      //automaticamente
-      //const key = firebase.database().ref().child('Alumnos').push().key;
-      //data[`Alumnos/${key}`]= alumno;
-      //firebase.database().ref().update(data).then(()=>{
-      //  alert('Agregado exitosamente');
-      //})
   }
   
   function read(){
       document.getElementById("Table1").innerHTML='';
   
       var ref = firebase.database().ref('Usuarios');
-  /**   
-     ref.on('value', function(snapshot) {
-          snapshot.forEach(row=>{
-              printRow(row.val());
-          })
-      });
-   */
      
       ref.on("child_added", function(snapshot) {
           printRow(snapshot.val());
@@ -102,10 +75,8 @@ var firebaseConfig = {
       if(usuario!=null){
           var table = document.getElementById("Table1"); 
   
-          //creamos un nuevo elemento en la tabla en la ultima posicion
           var row = table.insertRow(-1);
   
-          //Insertamos cada una de las celdas/columnas del registro
           var cell1 = row.insertCell(0);
           var cell2 = row.insertCell(1);
           var cell3 = row.insertCell(2);
@@ -116,7 +87,6 @@ var firebaseConfig = {
           var cell8 = row.insertCell(7);
           var cell9 = row.insertCell(8);
           
-          //Agregamos la informacion a cada una de las columnas del registro
           cell1.innerHTML = usuario.usuarioid;
           cell2.innerHTML = usuario.nickname; 
           cell3.innerHTML = usuario.password;
@@ -158,8 +128,6 @@ var firebaseConfig = {
       }
   }
   
-  
-  //Para consulta de localidad
   function readQ(){
       document.getElementById("Table2").innerHTML='';
       var c = document.getElementById("Input8").value;
@@ -176,10 +144,8 @@ var firebaseConfig = {
   
       var table = document.getElementById("Table2"); 
       
-      //creamos un nuevo elemento en la tabla en la ultima posicion
       var row = table.insertRow(-1);
   
-      //Insertamos cada una de las celdas/columnas del registro
       var cell1 = row.insertCell(0);
       var cell2 = row.insertCell(1);
       var cell3 = row.insertCell(2);
@@ -188,7 +154,6 @@ var firebaseConfig = {
       var cell6 = row.insertCell(5);
       var cell7 = row.insertCell(6);
       
-      //Agregamos la informacion a cada una de las columnas del registro
       cell1.innerHTML = usuario.usuarioid;
       cell2.innerHTML = usuario.nickname; 
       cell3.innerHTML = usuario.password;
